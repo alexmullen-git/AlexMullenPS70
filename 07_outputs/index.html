@@ -9,7 +9,7 @@
 <nav class="navbar navbar-expand-sm navbar-dark" style=" color: #EEE7E8;">
   <div style="align-items: center; justify-content: center;" class="container-fluid">
     <div class="flexrow">
-      <h2 class="nav-title">PS70 Fall 2024</h2>
+      <h2 class="nav-title">MVP!</h2>
     </div>
     <div class="navbar-nav">
       <h4><a class="nav-link" href="../index.html">Home</a></h4>
@@ -29,6 +29,53 @@
 
 <h4>Assignment: Minimum Viable Product for Final Project</h4>
 
+  <video width="400" height="600" controls>
+  <source src="./vid.mp4" type="video/mp4">
+  </video>
+
+  <br></br>
+  For my MVP, I created a version 1 of my final water turret based out of a 5-gallon water bucket. The turret uses two servos controlled
+  by my Arduino ESP32 to rotate and tilt a water nozzle. The water nozzle is connected to a water pump I found in the lab. Thw pump
+  is powered directly from the wall via an outlet, while the servos and microcontroller are powered by my computer which is how I control
+  them in real time. On my computer, I type into the serial monitor phrases like "X100" to move the horizontal servo to 100 degrees, 
+  or "Y45" to move the vertical servo to 45 degrees.
+
+  <br></br>
+  Iteration:
+  <br></br>
+  I initially 3D printed a 5mm nozzle (first picture below) to guage the power of the water pump and was left unsatisfied. The pump 
+  produced a weak stream of water that would not be effective for my final project, so I halved the diameter to 2.5mm (shown mounted 
+  on the servo assembly) and achieved a slightly stronger stream.
+
+  <img src="./nozzle.jpeg" alt="first nozzle" style="width:400px;height:400px;">
+  <img src="./nozzleFinalCAD.png" alt="second nozzle" style="width:400px;height:400px;">
+  <br></br>
+  Designing the servo mounts was challenging, I opted for a direct-mount system that utilized the existing holes on the sevro horns. 
+  See the pictures below of my assembly.
+
+
+  <img src="./servoAdapterCAD.png" alt="servo adapter CAD" style="width:300px;height:400px;">
+  <img src="./servoAssembly.jpeg" alt="servos assembled" style="width:400px;height:400px;">
+  <br></br>
+  
+  Additionally, I struggled with the assembly housing for the servos. My first design had no mounting ability and the dimensions 
+  exceeded the size of my bucket. I redesigned the assembly to have ring matching the top of my bucket with evenly spaced mounting 
+  holes. This allowed me to securely fasten the assembly to the bucket and ensure stability when the servos moved. After test-fitting
+  I even added a plastic bag hot glued to the bottom of the assembly to prevent water from splashing into the servos.
+
+  <img src="./HousingAndServos.jpg" alt="first assembly" style="width:300px;height:400px;">
+  <img src="./FinalServos.jpg" alt="final assembly" style="width:400px;height:400px;">
+  <br></br>
+
+  Oscilloscope Reading:
+  <br></br>
+
+  Below are my readings and mappings for the servo signals which I read using the oscilloscope in the lab. I found that the servos 
+  operated between 0.5ms and 2.4ms pulse widths, with 1.45ms being the center position. I mapped these values in my code to correspond
+  to angles between 0 and 180 degrees.
+
+  <img src="./servo180.jpg" alt="oscilloscope 180 degrees reading" style="width:450px;height:250px;">
+  <img src="./servo0.jpg" alt="oscilloscope 0 degrees reading" style="width:450px;height:250px;">
 
 </div>
 </xmp>
