@@ -1,12 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<title>Alex Mullen PS70 Portfolio </title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="./style.css" rel="stylesheet">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alex Mullen PS70 Portfolio</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="./style.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
+      min-height: 100vh;
+      color: #2d3748;
+      line-height: 1.7;
+    }
 
-<nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #c90016; color: #817b7c;">
+    .modern-nav {
+      background: linear-gradient(135deg, #c90016 0%, #a00012 100%);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      padding: 1.5rem 0;
+    }
+
+    .nav-title {
+      font-weight: 700;
+      font-size: 1.75rem;
+      letter-spacing: -0.5px;
+      color: #ffffff;
+      margin: 0;
+    }
+
+    .nav-link {
+      font-weight: 500;
+      padding: 0.75rem 1.5rem;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      text-decoration: none;
+      color: #ffffff;
+    }
+
+    .nav-link:hover {
+      background: rgba(255, 255, 255, 0.25);
+      border-color: rgba(255, 255, 255, 0.4);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      color: #ffffff;
+    }
+
+    .textcontainer {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+    }
+
+    .page-header {
+      text-align: center;
+      margin-bottom: 4rem;
+      animation: fadeInUp 0.6s ease-out;
+    }
+
+    .page-header h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #1a202c;
+      margin-bottom: 1rem;
+      letter-spacing: -1px;
+    }
+
+    .page-header p {
+      font-size: 1.25rem;
+      color: #718096;
+      font-weight: 400;
+    }
+
+    .about-card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 2.5rem;
+      margin-bottom: 3rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      animation: fadeInUp 0.6s ease-out;
+    }
+
+    .about-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+    }
+
+    .about-content {
+      font-size: 1.1rem;
+      color: #4a5568;
+      line-height: 1.8;
+      margin-bottom: 2rem;
+    }
+
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .image-wrapper {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      background: #f7fafc;
+    }
+
+    .image-wrapper:hover {
+      transform: scale(1.03);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+    }
+
+    .image-wrapper img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .image-wrapper:hover img {
+      transform: scale(1.05);
+    }
+
+    .profile-image {
+      max-width: 500px;
+      margin: 2rem auto;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .page-header h1 {
+        font-size: 2rem;
+      }
+
+      .about-card {
+        padding: 1.5rem;
+      }
+
+      .image-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .textcontainer {
+        padding: 2rem 1rem;
+      }
+    }
+  </style>
+</head>
+
+<nav class="navbar navbar-expand-sm navbar-dark modern-nav">
   <div style="align-items: center; justify-content: center;" class="container-fluid">
     <div class="flexrow">
       <h2 class="nav-title">About Alex Mullen</h2>
@@ -21,39 +191,38 @@
 <body>
 <xmp style="display:none;">
 <div class="textcontainer">
+  <div class="page-header">
+    <h1>About Me</h1>
+    <p>Get to know Alex Mullen</p>
+  </div>
 
-
-
-<h3>About Me</h3>
-
-<p class="margin">   </p>
-<div class="center-row">
-  <img src="./AlexanderMullen.jpg" alt="Picture of Alex Mullen" style="width:450px;height:450px;">
-  <p id="aboutme">
-     
-  </p>
-</div>
-<br></br>
-
-    Hi! My name is Alex Mullen and I am a first-year at Harvard College planning on studying Economics and Engineering Sciences.
-    I am from Fort Lauderdale, Florida and I love to be outdoors and active with friends. Some of my favorite experience in Engineering
-    thus far has been on my High School's robotics team and working on verious side projects. I am also very interested in the creative
-    arts, espically photography and sculpture. I am looking forward to learning more about iterative design and fabrication as well as
-    becoming friends with everyone in this class!
-<br></br>
-<img src="./swordfish.jpg" alt="Alex holding a swordfish" style="width:450px;height:450px;">
-
-<br></br>
-Here is a picture of me holding a big fish I caught!
-<br></br>
-
-
-
+  <div class="about-card">
+    <div class="image-grid">
+      <div class="image-wrapper profile-image">
+        <img src="./AlexanderMullen.jpg" alt="Picture of Alex Mullen">
+      </div>
+    </div>
+    <div class="about-content">
+      Hi! My name is Alex Mullen and I am a first-year at Harvard College planning on studying Economics and Engineering Sciences.
+      I am from Fort Lauderdale, Florida and I love to be outdoors and active with friends. Some of my favorite experience in Engineering
+      thus far has been on my High School's robotics team and working on verious side projects. I am also very interested in the creative
+      arts, espically photography and sculpture. I am looking forward to learning more about iterative design and fabrication as well as
+      becoming friends with everyone in this class!
+    </div>
+    <div class="image-grid">
+      <div class="image-wrapper profile-image">
+        <img src="./swordfish.jpg" alt="Alex holding a swordfish">
+      </div>
+    </div>
+    <div class="about-content" style="text-align: center; font-style: italic; color: #718096;">
+      Here is a picture of me holding a big fish I caught!
+    </div>
+  </div>
 </div>
 </xmp>
 </body>
 
 <script src="./strapdown.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" ></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 
 </html>

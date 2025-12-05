@@ -1,16 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<title>PS70: Week 4 </title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="../style.css" rel="stylesheet">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PS70: Week 4</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../style.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
+      min-height: 100vh;
+      color: #2d3748;
+      line-height: 1.7;
+    }
 
-<nav class="navbar navbar-expand-sm navbar-dark" style=" color: #EEE7E8;">
+    .modern-nav {
+      background: linear-gradient(135deg, #c90016 0%, #a00012 100%);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      padding: 1.5rem 0;
+    }
+
+    .nav-title {
+      font-weight: 700;
+      font-size: 1.75rem;
+      letter-spacing: -0.5px;
+      color: #ffffff;
+      margin: 0;
+    }
+
+    .nav-link {
+      font-weight: 500;
+      padding: 0.75rem 1.5rem;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      text-decoration: none;
+      color: #ffffff;
+    }
+
+    .nav-link:hover {
+      background: rgba(255, 255, 255, 0.25);
+      border-color: rgba(255, 255, 255, 0.4);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      color: #ffffff;
+    }
+
+    .textcontainer {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+    }
+
+    .page-header {
+      text-align: center;
+      margin-bottom: 4rem;
+      animation: fadeInUp 0.6s ease-out;
+    }
+
+    .page-header h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #1a202c;
+      margin-bottom: 1rem;
+      letter-spacing: -1px;
+    }
+
+    .page-header p {
+      font-size: 1.25rem;
+      color: #718096;
+      font-weight: 400;
+    }
+
+    .assignment-card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 2.5rem;
+      margin-bottom: 3rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      animation: fadeInUp 0.6s ease-out;
+      animation-fill-mode: both;
+    }
+
+    .assignment-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+    }
+
+    .assignment-title {
+      font-size: 2rem;
+      font-weight: 600;
+      color: #c90016;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 3px solid #e2e8f0;
+    }
+
+    .assignment-content {
+      font-size: 1.1rem;
+      color: #4a5568;
+      line-height: 1.8;
+      margin-bottom: 2rem;
+    }
+
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .image-wrapper {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      background: #f7fafc;
+    }
+
+    .image-wrapper:hover {
+      transform: scale(1.03);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+    }
+
+    .image-wrapper img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .image-wrapper:hover img {
+      transform: scale(1.05);
+    }
+
+    .single-image {
+      max-width: 500px;
+      margin: 2rem auto;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .page-header h1 {
+        font-size: 2rem;
+      }
+
+      .assignment-card {
+        padding: 1.5rem;
+      }
+
+      .assignment-title {
+        font-size: 1.5rem;
+      }
+
+      .image-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .textcontainer {
+        padding: 2rem 1rem;
+      }
+    }
+  </style>
+</head>
+
+<nav class="navbar navbar-expand-sm navbar-dark modern-nav">
   <div style="align-items: center; justify-content: center;" class="container-fluid">
     <div class="flexrow">
-      <h2 class="nav-title">Week 4 Project
-      </h2>
+      <h2 class="nav-title">Week 4 Project</h2>
     </div>
     <div class="navbar-nav">
       <h4><a class="nav-link" href="../index.html">Home</a></h4>
@@ -22,41 +205,56 @@
 <body>
 <xmp style="display:none;">
 <div class="textcontainer">
-<p class="margin">   </p>
+  <div class="page-header">
+    <h1>Week 4: Microcontroller Programming</h1>
+    <p>Creating an interactive waving hand with ESP32</p>
+  </div>
 
-<h3>Week 4: Microcontroller Programming</h3>
-
-<h4>[Do Something with an arduino]</h4>
-
-<img src="./circuit.jpg" alt="the wiring" style="width:400px;height:400px;">
-<img src="./test.gif" alt="the code working!" style="width:400px;height:400px;">
-
-<br></br>
-  Have you every had the awkward experience of waving to someone and they just didn't see you? Well I created a solution
-  to that problem with an ESP32-controlled waving hand! This project uses a servo motor and potentiometer to wave a hand back 
-  and forth based on the user's input. You can be control how dramatic the wave is by turning the potentiometer; the hand will
-  match your movements! 
-<br></br>
-
-<img src="./code.png" alt="code segments" style="width:300px;height:300px;">
-<img src="./cutout.jpg" alt="base cardboard cutouts" style="width:300px;height:300px;">
-<img src="./final.jpg" alt="assembled project" style="width:250px;height:250px;">
-
-<br></br>
-  Coding this project was challenging for me since I spent a day trying to troubleshoot my code while I simply had a dead servo.
-  Once I replaced the servo, I was able to get my code working smoothly and broke it down into simpler segments as seen above.
-  The cardboard cutouts were laser-cut and I used hot glue to assemble all the pieces toegther. I also used soldering to attach
-  wires to the potentiometer and then connect them to the breadboard. In the end, I am happy how this project turned out,
-  exposing me to the possibilities and simplicity of microcontroller programming. See the final project gif below!
-<br></br>
-
-<img src="./final.gif" alt="final project GIF" style="width:400px;height:550px;">
-
+  <div class="assignment-card">
+    <h2 class="assignment-title">Do Something with an Arduino</h2>
+    <div class="image-grid">
+      <div class="image-wrapper">
+        <img src="./circuit.jpg" alt="the wiring">
+      </div>
+      <div class="image-wrapper">
+        <img src="./test.GIF" alt="the code working!">
+      </div>
+    </div>
+    <div class="assignment-content">
+      Have you every had the awkward experience of waving to someone and they just didn't see you? Well I created a solution
+      to that problem with an ESP32-controlled waving hand! This project uses a servo motor and potentiometer to wave a hand back 
+      and forth based on the user's input. You can be control how dramatic the wave is by turning the potentiometer; the hand will
+      match your movements!
+    </div>
+    <div class="image-grid">
+      <div class="image-wrapper">
+        <img src="./code.png" alt="code segments">
+      </div>
+      <div class="image-wrapper">
+        <img src="./cutout.jpg" alt="base cardboard cutouts">
+      </div>
+      <div class="image-wrapper">
+        <img src="./final.jpg" alt="assembled project">
+      </div>
+    </div>
+    <div class="assignment-content">
+      Coding this project was challenging for me since I spent a day trying to troubleshoot my code while I simply had a dead servo.
+      Once I replaced the servo, I was able to get my code working smoothly and broke it down into simpler segments as seen above.
+      The cardboard cutouts were laser-cut and I used hot glue to assemble all the pieces toegther. I also used soldering to attach
+      wires to the potentiometer and then connect them to the breadboard. In the end, I am happy how this project turned out,
+      exposing me to the possibilities and simplicity of microcontroller programming. See the final project gif below!
+    </div>
+    <div class="image-grid">
+      <div class="image-wrapper single-image">
+        <img src="./final.GIF" alt="final project GIF">
+      </div>
+    </div>
+  </div>
 </div>
 </xmp>
 </body>
 
 <script src="../strapdown.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" ></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 
 </html>

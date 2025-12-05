@@ -1,12 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<title>Week 8: CNC! </title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="../style.css" rel="stylesheet">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week 8: CNC!</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../style.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
+      min-height: 100vh;
+      color: #2d3748;
+      line-height: 1.7;
+    }
 
-<nav class="navbar navbar-expand-sm navbar-dark" style=" color: #EEE7E8;">
+    .modern-nav {
+      background: linear-gradient(135deg, #c90016 0%, #a00012 100%);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      padding: 1.5rem 0;
+    }
+
+    .nav-title {
+      font-weight: 700;
+      font-size: 1.75rem;
+      letter-spacing: -0.5px;
+      color: #ffffff;
+      margin: 0;
+    }
+
+    .nav-link {
+      font-weight: 500;
+      padding: 0.75rem 1.5rem;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      text-decoration: none;
+      color: #ffffff;
+    }
+
+    .nav-link:hover {
+      background: rgba(255, 255, 255, 0.25);
+      border-color: rgba(255, 255, 255, 0.4);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      color: #ffffff;
+    }
+
+    .textcontainer {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+    }
+
+    .page-header {
+      text-align: center;
+      margin-bottom: 4rem;
+      animation: fadeInUp 0.6s ease-out;
+    }
+
+    .page-header h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #1a202c;
+      margin-bottom: 1rem;
+      letter-spacing: -1px;
+    }
+
+    .page-header p {
+      font-size: 1.25rem;
+      color: #718096;
+      font-weight: 400;
+    }
+
+    .assignment-card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 2.5rem;
+      margin-bottom: 3rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      animation: fadeInUp 0.6s ease-out;
+      animation-fill-mode: both;
+    }
+
+    .assignment-card:nth-child(1) { animation-delay: 0.1s; }
+    .assignment-card:nth-child(2) { animation-delay: 0.2s; }
+
+    .assignment-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+    }
+
+    .assignment-title {
+      font-size: 2rem;
+      font-weight: 600;
+      color: #c90016;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 3px solid #e2e8f0;
+    }
+
+    .assignment-content {
+      font-size: 1.1rem;
+      color: #4a5568;
+      line-height: 1.8;
+      margin-bottom: 2rem;
+    }
+
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .image-wrapper {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      background: #f7fafc;
+    }
+
+    .image-wrapper:hover {
+      transform: scale(1.03);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+    }
+
+    .image-wrapper img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .image-wrapper:hover img {
+      transform: scale(1.05);
+    }
+
+    .single-image {
+      max-width: 600px;
+      margin: 2rem auto;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .page-header h1 {
+        font-size: 2rem;
+      }
+
+      .assignment-card {
+        padding: 1.5rem;
+      }
+
+      .assignment-title {
+        font-size: 1.5rem;
+      }
+
+      .image-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .textcontainer {
+        padding: 2rem 1rem;
+      }
+    }
+  </style>
+</head>
+
+<nav class="navbar navbar-expand-sm navbar-dark modern-nav">
   <div style="align-items: center; justify-content: center;" class="container-fluid">
     <div class="flexrow">
       <h2 class="nav-title">Table and Fidget Spinner!</h2>
@@ -21,55 +208,71 @@
 <body>
 <xmp style="display:none;">
 <div class="textcontainer">
-<p class="margin">   </p>
+  <div class="page-header">
+    <h1>Week 8: CNC Milling</h1>
+    <p>Creating a CNC milled table and vacuum-formed fidget spinner</p>
+  </div>
 
-<h3>Week 8: CNC Milling</h3>
+  <div class="assignment-card">
+    <h2 class="assignment-title">Assignment: Make Something With CNC</h2>
+    <div class="image-grid">
+      <div class="image-wrapper">
+        <img src="./cnc.jpg" alt="Cutting on CNC">
+      </div>
+      <div class="image-wrapper">
+        <img src="./cutStock.jpg" alt="Cutting Stock">
+      </div>
+    </div>
+    <div class="assignment-content">
+      This week I took on an ambitiously large project of building a CNC milled table. I started by designing the table in Fusion, 
+      making two artistic legs with tabs to fit into the table top. I then realized that the stock and design I wanted to use were 
+      too large for the CNC machine we have to cut all at once, so I shortened the legs of the table and separated the cutting jobs. 
+      After much back and forth with the toolpaths and understanding the limitations of the CNC, I was able to successfully cut out all 
+      the parts. I cut the legs first from 12mm plywood then made sure the real dimensions fit my design. Each leg features custom 
+      designs on the side that utilize interior and exterior toolpaths with 4mm cut depth. After that, I realized that the stock we had 
+      was not sifficient for the size and design of the table top I wanted, so I cut some of the unmanagable sized supply stock into 
+      smaller pieces and cut out my table top leaving more material for my peers. I then sanded all the pieces down, giving them a 
+      smooth finish. Finally, with the convincing power of a hammer, I assembled the table by fitting the leg ssnugly into the table top.
+      Overall, I am very satisfied with the final product- it's going to be a great addition to my dorm room!
+    </div>
+    <div class="image-grid">
+      <div class="image-wrapper single-image">
+        <img src="./tableFinal.jpg" alt="Final CNC Table">
+      </div>
+    </div>
+  </div>
 
-<h4>Assignment: Make Something With CNC</h4>
-
-<img src="./cnc.jpg" alt="Cutting on CNC" style="width:400px;height:400px;">
-<img src="./cutStock.jpg" alt="Cutting Stock" style="width:400px;height:400px;">
-
-<br></br>
-  This week I took on an ambitiously large project of building a CNC milled table. I started by designing the table in Fusion, 
-  making two artistic legs with tabs to fit into the table top. I then realized that the stock and design I wanted to use were 
-  too large for the CNC machine we have to cut all at once, so I shortened the legs of the table and separated the cutting jobs. 
-  After much back and forth with the toolpaths and understanding the limitations of the CNC, I was able to successfully cut out all 
-  the parts. I cut the legs first from 12mm plywood then made sure the real dimensions fit my design. Each leg features custom 
-  designs on the side that utilize interior and exterior toolpaths with 4mm cut depth. After that, I realized that the stock we had 
-  was not sifficient for the size and design of the table top I wanted, so I cut some of the unmanagable sized supply stock into 
-  smaller pieces and cut out my table top leaving more material for my peers. I then sanded all the pieces down, giving them a 
-  smooth finish. Finally, with the convincing power of a hammer, I assembled the table by fitting the leg ssnugly into the table top.
-  Overall, I am very satisfied with the final product- it's going to be a great addition to my dorm room!
-<br></br>
-
-<img src="./tableFinal.jpg" alt="Final CNC Table" style="width:500px;height:500px;">
-
-<br></br>
-
-<h4>Assignment 2: Mold/Cast/Vacuum Form Product</h4>
-
-<img src="./FidgetVacuum.jpg" alt="Vacuum-Formed Fidget Spinner" style="width:400px;height:400px;">
-<img src="./FidgetHG.jpg" alt="Casting Fidget Spinner" style="width:400px;height:400px;">
-
-<br></br>
-  Have you ever watched 5-minute crafts? They always make these cool random projects with hot glue. That has always captivated 
-  my interest, so I decided to take inspiration from them. Initially I 3D printed a fidget spinner and then used the vacuum former 
-  to create a perfect mold. It was at this critical moment that I realized the inconvenience of resin and how long it would take to 
-  cure. So instead I remembered how 5-minute crafts uses hot glue for everything, so I decided to use hot glue to create the fidget 
-  spinner. I lined the mold with vegetable oil to fascilate mold release and then filled the mold with the coolest temperature of hot 
-  glue I could manage. After letting it cool for a few minutes I popped it out of the mold and was shocked by the resulting 
-  flexibility. The vacuum formed mold did deform from the heat of the glue and the oil seemed to impact the glue's properties, but 
-  overall I was very satisfied with the final product.
-<br></br>
-
-<img src="./FidgetFinal.jpg" alt="Final Fidget Spinner" style="width:500px;height:500px;">
-
+  <div class="assignment-card">
+    <h2 class="assignment-title">Assignment 2: Mold/Cast/Vacuum Form Product</h2>
+    <div class="image-grid">
+      <div class="image-wrapper">
+        <img src="./FidgetVacuum.jpg" alt="Vacuum-Formed Fidget Spinner">
+      </div>
+      <div class="image-wrapper">
+        <img src="./FidgetHG.jpg" alt="Casting Fidget Spinner">
+      </div>
+    </div>
+    <div class="assignment-content">
+      Have you ever watched 5-minute crafts? They always make these cool random projects with hot glue. That has always captivated 
+      my interest, so I decided to take inspiration from them. Initially I 3D printed a fidget spinner and then used the vacuum former 
+      to create a perfect mold. It was at this critical moment that I realized the inconvenience of resin and how long it would take to 
+      cure. So instead I remembered how 5-minute crafts uses hot glue for everything, so I decided to use hot glue to create the fidget 
+      spinner. I lined the mold with vegetable oil to fascilate mold release and then filled the mold with the coolest temperature of hot 
+      glue I could manage. After letting it cool for a few minutes I popped it out of the mold and was shocked by the resulting 
+      flexibility. The vacuum formed mold did deform from the heat of the glue and the oil seemed to impact the glue's properties, but 
+      overall I was very satisfied with the final product.
+    </div>
+    <div class="image-grid">
+      <div class="image-wrapper single-image">
+        <img src="./FidgetFinal.jpg" alt="Final Fidget Spinner">
+      </div>
+    </div>
+  </div>
 </div>
 </xmp>
 </body>
 
 <script src="../strapdown.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" ></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 
 </html>
