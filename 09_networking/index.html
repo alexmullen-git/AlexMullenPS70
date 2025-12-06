@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>PS70: Intro to Digital Fabrication</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="../style.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="../style.css" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -262,30 +262,30 @@
     <div class="video-grid">
       <div class="video-wrapper">
         <video controls>
-          <source src="./MAKERSPACE.mp4" type="video/mp4">
-        </video>
+  <source src="./MAKERSPACE.mp4" type="video/mp4">
+  </video>
       </div>
       <div class="video-wrapper">
         <video controls>
-          <source src="./DIY.mp4" type="video/mp4">
-        </video>
+  <source src="./DIY.mp4" type="video/mp4">
+  </video>
       </div>
     </div>
     <div class="assignment-content">
-      For my IoT project, I used an ESP32 microcontroller to create a simple wireless servo control system. By connecting the ESP32 to 
-      Wi-Fi (or starting its own access point if Wi-Fi is unavailable), it hosts a small webpage accessible from any device on the same 
-      network. That webpage includes a slider that allows the user to adjust the servo's angle in real time. A WebSocket connection 
-      between the ESP32 and the browser ensures instant, two-way communication, meaning movements are smooth and responsive without 
-      needing to refresh the page. This setup demonstrates how the ESP32 can combine networking, real-time control, and simple web 
-      interfaces for physical devices.
+  For my IoT project, I used an ESP32 microcontroller to create a simple wireless servo control system. By connecting the ESP32 to 
+  Wi-Fi (or starting its own access point if Wi-Fi is unavailable), it hosts a small webpage accessible from any device on the same 
+  network. That webpage includes a slider that allows the user to adjust the servo's angle in real time. A WebSocket connection 
+  between the ESP32 and the browser ensures instant, two-way communication, meaning movements are smooth and responsive without 
+  needing to refresh the page. This setup demonstrates how the ESP32 can combine networking, real-time control, and simple web 
+  interfaces for physical devices.
     </div>
     <div class="assignment-content">
-      The code begins by importing libraries for Wi-Fi, HTTP, WebSocket, and servo control, then defines the Wi-Fi credentials, servo 
-      pin, and web content. In setup(), it initializes serial communication, attempts to connect to Wi-Fi, and starts an access point if 
-      the connection fails. The servo is attached and centered at a default angle (90 degrees). The web server then serves a small HTML 
-      page with a slider, while the WebSocket server listens for incoming messages. As the user moves the slider, the browser sends angle 
-      values through the WebSocket, which the ESP32 reads and applies directly to the servo. Finally, the main loop continuously handles 
-      client requests and WebSocket updates to maintain live communication. See below code snippet showing the setup and loop workflow.
+  The code begins by importing libraries for Wi-Fi, HTTP, WebSocket, and servo control, then defines the Wi-Fi credentials, servo 
+  pin, and web content. In setup(), it initializes serial communication, attempts to connect to Wi-Fi, and starts an access point if 
+  the connection fails. The servo is attached and centered at a default angle (90 degrees). The web server then serves a small HTML 
+  page with a slider, while the WebSocket server listens for incoming messages. As the user moves the slider, the browser sends angle 
+  values through the WebSocket, which the ESP32 reads and applies directly to the servo. Finally, the main loop continuously handles 
+  client requests and WebSocket updates to maintain live communication. See below code snippet showing the setup and loop workflow.
     </div>
     <div class="image-grid">
       <div class="image-wrapper single-image">
