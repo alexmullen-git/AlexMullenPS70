@@ -235,6 +235,82 @@
       display: block;
     }
 
+    .media-item.smaller {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    .back-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1rem 2rem;
+      background: linear-gradient(135deg, #c90016 0%, #a00012 100%);
+      color: #ffffff;
+      border: none;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 4px 15px rgba(201, 0, 22, 0.3);
+      margin: 2rem 0;
+      cursor: pointer;
+    }
+
+    .back-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(201, 0, 22, 0.4);
+      color: #ffffff;
+    }
+
+    .download-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1rem 2rem;
+      background: linear-gradient(135deg, #c90016 0%, #a00012 100%);
+      color: #ffffff;
+      border: none;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 4px 15px rgba(201, 0, 22, 0.3);
+      margin: 0.5rem;
+      cursor: pointer;
+    }
+
+    .download-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(201, 0, 22, 0.4);
+      color: #ffffff;
+    }
+
+    .download-button::before {
+      content: "⬇️";
+      font-size: 1.2rem;
+    }
+
+    .download-buttons-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .step-title {
+      font-size: 1.75rem;
+      font-weight: 600;
+      color: #c90016;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #e2e8f0;
+    }
+
     @keyframes fadeInUp {
       from {
         opacity: 0;
@@ -284,7 +360,6 @@
 </nav>
 
 <body>
-<xmp style="display:none;">
 <div class="textcontainer">
   <div class="page-header">
     <h1>Final Project: Water-Filling Table</h1>
@@ -361,17 +436,176 @@
 
   <div id="documentationContent" class="content-section">
     <div class="assignment-card">
-      <h2 class="assignment-title">Documentation</h2>
+      <h2 class="assignment-title">Project Documentation</h2>
+      
+      <div class="step-title">Step One: Locating materials</div>
       <div class="assignment-content">
-        Documentation content coming soon...
+        Building off the MVP from earlier in the semester, I needed to find a way for the nozzle to utilize a hose that is easier to maneuver for the nozzle. I found some tubing that was half the size and made of silicone, so it was very flexible and easy to work with. I decided to continue with the water pump from MVP week since it is rated for ~300 gph and when optimized with the proper nozzle I believe it can provide the proper pressure.
+      </div>
+
+      <div class="step-title">Step Two: Initial Redesign</div>
+      <div class="assignment-content">
+        I started by 3D printing an adapter from the water pump's 13mm (internal diameter) hose to my new 6mm silicone hose, this was easy since I already experimented with barbed adapters during MVP week. Afterwards, I made a few nozzles with varying tapers and end diameters. I finally landed on a nozzle that had a 3mm internal diameter with no taper.
+      </div>
+      <div class="media-gallery">
+        <div class="media-item smaller">
+          <img src="./nozzleOptimization.jpg" alt="Nozzle optimization">
+        </div>
+      </div>
+
+      <div class="assignment-content">
+        Next, I worked on the gimbal/directional component. Taking inspiration from the design below, I designed a nozzle adapter that mounted to the servo and had a pivoting mechanism that linked to a servo horn using a rod (I used a paper clip). After the proof-of-concept, I designed and printed a print-in-place mechanism that would prevent the pivoting section from sliding out of position.
+      </div>
+      <div class="media-gallery">
+        <div class="media-item">
+          <img src="./Reference.jpg" alt="Reference design">
+        </div>
+        <div class="media-item">
+          <img src="./nozzleAssembly1.0.jpg" alt="Nozzle assembly 1.0">
+        </div>
+        <div class="media-item">
+          <img src="./nozzleAssembly1.1.jpg" alt="Nozzle assembly 1.1">
+        </div>
+        <div class="media-item">
+          <img src="./nozzleAssembly2.0.jpg" alt="Nozzle assembly 2.0">
+        </div>
+        <div class="media-item">
+          <img src="./nozzleAssembly2.1.jpg" alt="Nozzle assembly 2.1">
+        </div>
+      </div>
+
+      <div class="assignment-content">
+        After designing the nozzle assembly, I created a cylinder shape that would house the nozzle assembly such that the center of the nozzle would remain in the center of the cylinder regardless of its angle of rotation. I left cutouts in the cylinder so I could access the installation screws. This cylinder would have various additional components for the project.
+      </div>
+      <div class="media-gallery">
+        <div class="media-item smaller">
+          <img src="./nozzleAssembly2.2.jpg" alt="Nozzle assembly 2.2">
+        </div>
+      </div>
+
+      <div class="assignment-content">
+        In order to integrate the nozzle assembly into a flat tabletop, I decided to attach a servo to push/pull the cylinder to the left/right. This requires four parts: servo mount, a custom servo horn, the cylinder base attachment, and the rod that connects the servo horn to the cylinder base attachment. When designing the cylinder base and the servo horn, I had to be sure that the horn's mounting horn was the same length as the radius of the cylinder base. After mounting all the parts, I was left with the first iteration of my final project!
+      </div>
+      <div class="media-gallery">
+        <div class="media-item">
+          <img src="./nozzleAssembly2.3.jpg" alt="Nozzle assembly 2.3">
+        </div>
+        <div class="media-item">
+          <video controls autoplay loop muted playsinline>
+            <source src="./nozzleAssembly2.4.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="assignment-content">
+        The bucket-lid prototype worked well, however I had a much larger scale in mind for the final product… so I built a table!
+      </div>
+
+      <div class="step-title">Step Three: Final iteration</div>
+      <div class="assignment-content">
+        I built a table out of the side of a wooden container and some leftover 2x4s in the lab. Building cross braces helped stabilize the legs and give the table sturdy support
+      </div>
+      <div class="media-gallery">
+        <div class="media-item smaller">
+          <img src="./table.jpg" alt="Table construction">
+        </div>
+      </div>
+
+      <div class="assignment-content">
+        After cutting holes in the table, I realized that the servo had terrible leverage on rotating the cylinder, so I added a second side to the servo horn. Now, the mechanism would push and pull to rotate at the same time.
+      </div>
+      <div class="media-gallery">
+        <div class="media-item">
+          <video controls autoplay loop muted playsinline>
+            <source src="./nozzleAssembly3.0.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="media-item">
+          <video controls autoplay loop muted playsinline>
+            <source src="./turnDemo.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="assignment-content">
+        To sense where cups are, I landed on using hall effect sensors beneath the table to allow for a slick surface with good sensing ability. I designed a mount for large neodymium magnets to attach beneath white cups so that when the cups are above the sensors, it would pick up the magnetic waves. My grid of four sensors across the table are set to indicate the presence of a cup when the values derived from each sensor are greater than 3700, this leaves the perfect margin of error for the variability of the water stream and misalignment of the cup on the sensor. See the below demo video where the LED indicator switch turns on when a cup is present on the table.
+      </div>
+      <div class="media-gallery">
+        <div class="media-item">
+          <video controls autoplay loop muted playsinline>
+            <source src="./sensingDemo.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div class="assignment-content">
+        Controlling the water pump required a 120v relay, since the pump only worked when plugged into a wall outlet. I combatted this challenge by installing a power strip to the bottom of my table so, ultimately, the entire table could be independently standing with only a single plug. This would contribute greatly to the minimalist appearance and project integration. See my wiring and circuitry underneath the table or in the picture below!
+      </div>
+      <div class="media-gallery">
+        <div class="media-item">
+          <img src="./underTable1.jpg" alt="Under table wiring 1">
+        </div>
+        <div class="media-item">
+          <img src="./underTable2.jpg" alt="Under table wiring 2">
+        </div>
+      </div>
+
+      <div class="step-title">Step Four: Code!</div>
+      <div class="assignment-content">
+        This project had three main objectives: indicate when cups are present, have a "smart" switch, and account for multiple cups at the same time.
+      </div>
+      <div class="assignment-content">
+        <strong>Indicate when cups are present:</strong> To accomplish this objective, I utilized a LED indicator switch. Whenever a sensor read >3700, a cup was considered present and the LED would update in real time.
+      </div>
+      <div class="assignment-content">
+        <strong>"Smart" switch:</strong> In the scope of this project, to be considered "smart," the switch must only work if the table detects a cup (LED indicator is on) and account for edge cases (switch being on when the table powers on and switch left on while filling cups).
+      </div>
+      <div class="assignment-content">
+        <strong>Account for multiple cups:</strong> When the switch is activated, the program will take a snapshot of which sensors detect cups, then sequence from one cup to the next until all cups have been filled.
+      </div>
+
+      <div class="step-title">Step Five: Test and finalize</div>
+      <div class="assignment-content">
+        After calibrating the water dispenser, I tested with singular and multiple cups, quickly realizing the importance of acquiring a waterproof table cloth.
+      </div>
+      <div class="media-gallery">
+        <div class="media-item">
+          <video controls autoplay loop muted playsinline>
+            <source src="./test1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div class="media-item">
+          <video controls autoplay loop muted playsinline>
+            <source src="./test2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+
+      <div style="text-align: center; margin-top: 3rem;">
+        <button class="back-button" onclick="switchView('finalProject')">
+          View Final Project Summary
+        </button>
+      </div>
+
+      <div class="download-buttons-group">
+        <a href="./FinalCode.ino" download class="download-button">
+          Download Final Code (.ino)
+        </a>
+        <a href="./Alex Mullen - PS70 CAD Files.zip" download class="download-button">
+          Download CAD Files (.zip)
+        </a>
       </div>
     </div>
   </div>
 </div>
-</xmp>
 </body>
 
-<script src="../strapdown.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 <script>
   function switchView(view) {
